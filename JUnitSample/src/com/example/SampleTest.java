@@ -19,15 +19,22 @@ class SampleTest {
         @Test
         @DisplayName("引数エラー")
         void fail() {
-//            try {
-//                Sample.getColor(99);
-//                fail();
-//            } catch (IllegalArgumentException e) {
+            try {
+                Sample.getColor(99);
+                fail();
+            } catch (IllegalArgumentException e) {
             	
-            	 IllegalArgumentException expected =
-            		        assertThrows(IllegalArgumentException.class, () -> Sample.getColor(99));
+            	assertEquals("エラーが発生しました", e.getMessage());
             	
             }
         }
+        @Test
+        @DisplayName("引数エラー")
+        void fail2() {
+
+             assertThrows(IllegalArgumentException.class, () -> Sample.getColor(99));
+            	
+        }
     }
 
+}
